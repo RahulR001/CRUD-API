@@ -2,10 +2,9 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from .models import APITodolist
 from .serializer import HomeSerializer
+ 
 
-
-# Create your views here.
-
+# ========== project-url-patterns ==========
 
 @api_view(['GET'])
 def tasklist(request):
