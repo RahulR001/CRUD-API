@@ -1,6 +1,8 @@
 from django.db import models
 
-# Create your models here.
+
+# ========== class-to-create-models ==========
+
 class APITodolist(models.Model):
     tasktitle = models.CharField(max_length=30)
     taskDesc = models.TextField()

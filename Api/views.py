@@ -4,7 +4,7 @@ from .models import APITodolist
 from .serializer import HomeSerializer
  
 
-# ========== project-url-patterns ==========
+# ========== method-to-access-tasklist-view ==========
 
 @api_view(['GET'])
 def tasklist(request):
@@ -13,12 +13,16 @@ def tasklist(request):
     return Response(serializer.data)
 
 
+# ========== method-to-access-taskdetail-view ==========
+
 @api_view(['GET'])
 def taskdetail(request, id):
     task = APITodolist.objects.get(id=id)
     serializer = HomeSerializer(task, many=False)
     return Response(serializer.data)
 
+
+# ========== method-to-access-taskupdate-view ==========
 
 @api_view(['POST'])
 def taskupdate(request, id):
@@ -29,12 +33,16 @@ def taskupdate(request, id):
     return Response(serializer.data)
 
 
+# ========== method-to-access-taskdelete-view ==========
+
 @api_view(['DELETE'])
 def taskdelete(request, id):
     task = APITodolist.objects.get(id=id)
     task.delete()
     return Response('Task deleted successfully')
 
+
+# ========== method-to-access-taskcreate-view ==========
 
 @api_view(['POST'])
 def taskcreate(request):
